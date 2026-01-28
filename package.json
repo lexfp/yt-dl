@@ -1,0 +1,12 @@
+{
+    "name": "yt-mp3-downloader",
+    "version": "0.1.0",
+    "description": "Download YouTube videos or playlists to MP3 via CLI",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "author": "",
+    "license": "MIT",
+    "dependencies": {}
+}
