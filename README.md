@@ -1,6 +1,6 @@
-# YouTube to MP3 Downloader
+# YouTube Downloader
 
-Simple Node.js CLI to download a YouTube video or playlist and convert to MP3.
+Simple Node.js CLI to download a YouTube video or playlist as MP3 (audio) or MP4 (video).
 
 Prerequisites
 - Install Node.js (14+).
@@ -36,12 +36,28 @@ npm install
 Usage
 
 ```bash
-node index.js <youtube-video-or-playlist-url> [out-dir]
-# example
-node index.js https://www.youtube.com/watch?v=... ./my-music
-node index.js https://www.youtube.com/playlist?list=... ./my-music
+node index.js <youtube-video-or-playlist-url> [out-dir] [format]
+```
+
+- `out-dir`: Output directory (default: `./downloads`)
+- `format`: `mp3` (default) or `mp4`
+
+Examples:
+
+```bash
+# Download as MP3 (audio only)
+node index.js https://www.youtube.com/watch?v=... ./my-music mp3
+
+# Download as MP4 (video)
+node index.js https://www.youtube.com/watch?v=... ./my-videos mp4
+
+# Download playlist as MP3
+node index.js https://www.youtube.com/playlist?list=... ./my-music mp3
+
+# Download playlist as MP4
+node index.js https://www.youtube.com/playlist?list=... ./my-videos mp4
 ```
 
 Notes
-- This uses `ytdl-core` + `ytpl` to fetch videos and `fluent-ffmpeg` to convert audio. `ffmpeg` must be installed separately.
-- Filenames are sanitized. Existing files are skipped.
+- This uses `yt-dlp` to download and `ffmpeg` for conversion. Both must be installed separately.
+- Filenames are sanitized using the video title.
